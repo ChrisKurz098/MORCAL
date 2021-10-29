@@ -8,6 +8,7 @@ It was originlly written in Python and this is a port of that code-->
 </head>
 <body>
     <h1>Mortgage Payment Calulator</h1>
+    <!--START JS-->
     <script type="text/javascript">
 var APR = prompt("Please enter your APR (1% = .01)", 0);  //ask for apr from user
 var DEBT = prompt("Please enter your total debt", 0); //ask for total debt from user
@@ -24,7 +25,7 @@ var PRINC=Math.round(DEBT/YEARS/12); //constant, monthly principal payment
 var FULL=0; //this will hold the calculated total monthly paymnet [intrest+princ]
 var TOTALMONTHLY=0; //accumulated total payments
 
-document.write ('--------------------<br>Principal Monthly Payment: $',PRINC, '<br>--------------------');
+document.write ('--------------------<br>',YEARS,' Year Fixed Mortgage at ',(APR*100),'% APR<br>Principal Monthly Payment: $',PRINC,'<br>Total Debt: $',DEBT,'<br>--------------------');
 
 //Calculation Loop//
 while (TIMER!=MONTHS+1){ //while the currentmonth [TIMER] does not equal the total number of months [MONTHS], do the loop (a 1 is added so that month 1 = 1 and not 0)
