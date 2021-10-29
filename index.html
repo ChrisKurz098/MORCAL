@@ -9,27 +9,28 @@ It was originlly written in Python and this is a port of that code-->
 <body>
     <h1>Mortgage Payment Calulator</h1>
     <script type="text/javascript">
-var APR = prompt("Please enter your APR (1% = .01)", 0);
-var DEBT = prompt("Please enter your total debt", 0);
-var YEARS = prompt("Please enter number of years to pay off", 30);
+var APR = prompt("Please enter your APR (1% = .01)", 0);  //ask for apr from user
+var DEBT = prompt("Please enter your total debt", 0); //ask for total debt from user
+var YEARS = prompt("Please enter number of years to pay off", 30); //ask for total years from user
 
 
 var DEBTS=DEBT; //crate a second debt value as a constant - aka inital debt
 var TOTALINT=0;
-var TIMER = 1;
-var PAYMENT=0;
-var MONTHS=(YEARS*12);
-var YEAR=(TIMER/12);
+var TIMER = 1; //this will represent the current month
+var PAYMENT=0; //this will hold the value for each months calculated  payment 
+var MONTHS=(YEARS*12); //total number of months. Used for the while loop [see while loop]
+var YEAR=(TIMER/12); //holds value for the year based of the current month
 var PRINC=Math.round(DEBT/YEARS/12); //constant, monthly principal payment
-var FULL=0;
+var FULL=0; //this will hold the calculated total monthly paymnet [intrest+princ]
 var TOTALMONTHLY=0; //accumulated total payments
+
 document.write ('--------------------<br>Principal Monthly Payment: $',PRINC, '<br>--------------------');
 
 //Calculation Loop//
-while (TIMER!=MONTHS+1){
+while (TIMER!=MONTHS+1){ //while the currentmonth [TIMER] does not equal the total number of months [MONTHS], do the loop (a 1 is added so that month 1 = 1 and not 0)
     
     PAYMENT = Math.round((DEBT*APR/12)); //calculate new intrest amount
-    YEAR = Math.ceil(TIMER/12);    //Current year
+    YEAR = Math.ceil(TIMER/12);    //Current year by taking current month [TIMER] div by 12
     FULL = Math.round(PAYMENT+PRINC);  //calculate total payment
     DEBT=Math.round(DEBT-PRINC);   //calulate new debt by subtracting principal payment from debt
 
@@ -42,9 +43,10 @@ while (TIMER!=MONTHS+1){
     document.write ('<br>Remaining Debt: $',  DEBT);
     document.write ('<br>Total Months: ', TIMER);
     document.write ('<br>------------------------');
+    //prepar for next loop
     TOTALMONTHLY +=FULL //add payment to total paymnets
     TOTALINT=Math.round(TOTALINT+PAYMENT)
-    TIMER +=1 //add 1 to timer to increment month
+    TIMER +=1 //add 1 to TIMER to increment month
 }
 
 </script>
