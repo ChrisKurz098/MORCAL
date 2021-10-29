@@ -25,7 +25,7 @@ var PRINC=Math.round(DEBT/YEARS/12); //constant, monthly principal payment
 var FULL=0; //this will hold the calculated total monthly paymnet [intrest+princ]
 var TOTALMONTHLY=0; //accumulated total payments
 
-document.write ('--------------------<br>',YEARS,' Year Fixed Mortgage at ',(APR*100),'% APR<br>Principal Monthly Payment: $',PRINC,'<br>Total Debt: $',DEBT,'<br>--------------------');
+document.write ('--------------------<br>',YEARS,' Year Fixed Mortgage at ',(APR*100),'% APR<br>Total Debt: $',DEBT,'<br>Principal Monthly Payment: $',PRINC,'<br>--------------------');
 
 //Calculation Loop//
 while (TIMER!=MONTHS+1){ //while the currentmonth [TIMER] does not equal the total number of months [MONTHS], do the loop (a 1 is added so that month 1 = 1 and not 0)
